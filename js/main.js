@@ -284,7 +284,7 @@ $(function () {
                 var n = t.x;
                 var i = t.y;
                 var o = e / a;
-                if(is_16/9) {o=o*16/9;}
+                if(is_16_9) {o=o*16/9;}
                 var l = $image.cropper('getImageData');
                 var c = l.naturalHeight;
                 var d = l.naturalWidth;
