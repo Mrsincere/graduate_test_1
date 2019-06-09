@@ -283,27 +283,27 @@ $(function () {
                 var a = t.width;
                 var n = t.x;
                 var i = t.y;
-                var o = e / a;
-                if(is_16_9) {o=o*16/9;}
+                var o = parseInt(e / a);
+                if(is_16_9) {o=parseInt(o*16/9);}
                 var l = $image.cropper('getImageData');
                 var c = l.naturalHeight;
                 var d = l.naturalWidth;
                 var m = document.getElementById("myCanvas");
                 //m.width = e;
                 //m.height = e;
-                if(is_16_9) {m.width=e*16/9;m.height=e;}
-                else        {m.width=e;m.height=e*16/9;}
+                if(is_16_9) {m.width=parseInt(e*16/9);m.height=e;}
+                else        {m.width=e;m.height=parseInt(e*16/9);}
                 var u = m.getContext("2d");
                 u.fillStyle = "#fff";
                 //u.fillRect(0, 0, e, e);
-                if(is_16_9) {u.fillRect(0,0,e*16/9,e);}
-                else        {u.fillRect(0,0,e,e*16/9);}
+                if(is_16_9) {u.fillRect(0,0,parseInt(e*16/9),e);}
+                else        {u.fillRect(0,0,e,parseInt(e*16/9));}
                 var g = document.getElementById("image");
                 g.crossOrigin = "*";
                 u.drawImage(g, -n * o, -i * o, d * o, c * o);
                 //u.drawImage(mystyle, 0, 0, e, e);
-                if(is_16_9){u.drawImage(mystyle,0,0,e*16/9,e);}
-                else{u.drawImage(mystyle,0,0,e,e*16/9);}
+                if(is_16_9){u.drawImage(mystyle,0,0,parseInt(e*16/9),e);}
+                else{u.drawImage(mystyle,0,0,e,parseInt(e*16/9));}
                 var v = document.getElementById("outputImage");
                 v.src = m.toDataURL("");
             }                
