@@ -23,15 +23,17 @@ $(function () {
     var middle_width=window_width/2-22;
     var cartoon_height=$('#cartoon').height();
 
-    function my_graduate_setTimeout_removeClass(index,time_delay){
+    function my_graduate_setTimeout_removeClass(index,time_delay,type){
         setTimeout(function(){
-            $('#graduate'+index).removeClass('hidden');
+            if(type==0) {$('#graduate'+index).removeClass('hidden');}
+            else if(type==1) {$('#graduate_new_'+index).removeClass('hidden');}
         },time_delay);
     }
 
-    function my_graduate_setTimeout_move(index,time_delay,left_position,top_position){
+    function my_graduate_setTimeout_move(index,time_delay,left_position,top_position,type){
         setTimeout(function(){
-            $('#graduate'+index).animate({left:left_position+'px',top:top_position+'px'},250)
+            if(type==0) {$('#graduate'+index).animate({left:left_position+'px',top:top_position+'px'},250)}
+            else if(type==1) {$('#graduate_new_'+index).animate({left:left_position+'px',top:top_position+'px'},250)}
         },time_delay);
     }
 
@@ -58,23 +60,35 @@ $(function () {
         },2500);*/
         var left_position=[window_width*2/100,window_width*10/100,window_width*20/100,window_width*30/100,middle_width,window_width*70/100-44,window_width*80/100-44,window_width*90/100-44,window_width*98/100-44];
         var top_position=[cartoon_height*55/100,cartoon_height*48/100,cartoon_height*44/100,cartoon_height*41/100,cartoon_height*39/100,cartoon_height*41/100,cartoon_height*44/100,cartoon_height*48/100,cartoon_height*55/100];
+        var left_position_new=[window_width*20/100,window_width*30/100,middle_width,window_width*70/100-44,window_width*80/100-44,window_width*90/100-44];
+        var top_position_new=[cartoon_height*30/100,cartoon_height*27/100,cartoon_height*25/100,cartoon_height*27/100,cartoon_height*30/100,cartoon_height*34/100];
         var array_length=9;
         setTimeout(function(){
-            $('#graduate1').removeClass('hidden').animate({top:'30%',left:'30%'},1000,function(){
-                $('#graduate2').removeClass('hidden');
                 var i,j,time_delay,item_get;
+                for(i=6;i>=1;i--)
+                {
+                    time_delay=250*(7-i);
+                    my_graduate_setTimeout_removeClass(i,time_delay,1);
+                    for(j=6;j>=i;j--)
+                    {
+                        my_graduate_setTimeout_move(j,time_delay,left_position_new[j-i],top_position_new[j-i],1);
+                    }
+                }
                 for(i=3;i<=11;i++)
                 {
                     time_delay=250*(i-2);
-                    my_graduate_setTimeout_removeClass(i,time_delay);
+                    my_graduate_setTimeout_removeClass(i,time_delay,0);
                     for(j=3;j<=i;j++)
                     {
-                        my_graduate_setTimeout_move(j,time_delay,left_position[array_length-1-i+j],top_position[array_length-1-i+j]);
+                        my_graduate_setTimeout_move(j,time_delay,left_position[array_length-1-i+j],top_position[array_length-1-i+j],0);
                     }
                 }
                 setTimeout(function(){
-                   for(i=1;i<=11;i++){
+                   for(i=3;i<=11;i++){
                        $('#graduate'+i).addClass('graduate'+i);
+                   }
+                   for(i=1;i<=6;i++){
+                       $('#graduate_new_'+i).addClass('graduate_new_'+i);
                    }
                 },2500);
                 setTimeout(function(){
@@ -85,7 +99,7 @@ $(function () {
                         $('body').css('background-image','url("./picture/background.jpg")');
                     });
                 },3700);
-            });
+
         },3000);
         
     }
@@ -105,11 +119,18 @@ $(function () {
             })
         });
     })
-/*
-    $('#cartoon').hide();
-    $('#main').css('visibility','visible');
-    $('body').css('background-image','url("./picture/background.jpg")')
-*/
+    
+
+    //$('#cartoon').hide();
+    //$('#main').css('visibility','visible');
+    //$('body').css('background-image','url("./picture/background.jpg")')
+    /*
+    $('.graduate').removeClass('hidden');
+    for(var i=3;i<=11;i++){
+        $('#graduate'+i).addClass('graduate'+i).removeClass('graduate_class2');
+    }
+    */
+
   // Demo
   // -------------------------------------------------------------------------
 
@@ -198,7 +219,7 @@ $(function () {
             }
         }).cropper(options);
 
-        var mystyle;
+        var mystyle = abc("./picture/pic1.png");
 
         $("#pic1").on("click", function() {
             var totalpath = "./picture/pic1.png";
