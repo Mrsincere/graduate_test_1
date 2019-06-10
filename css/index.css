@@ -157,7 +157,6 @@ body {
     height:100%;
     top:0%;
     left:0%;
-    border: solid 1px;
     font-size: 60px;
 }
 
@@ -182,33 +181,81 @@ body {
 }
 
 
-.graduate1{
+.graduate_new_1{
     top:30%;
-    left:30%;
-    transform:rotate(-25deg);
-    -ms-transform:rotate(-25deg);
-    -moz-transform:rotate(-25deg);
-    -webkit-transform:rotate(-25deg);
-    -o-transform:rotate(-25deg);
+    left:20%;
+    transform:rotate(-30deg);
+    -ms-transform:rotate(-30deg);
+    -moz-transform:rotate(-30deg);
+    -webkit-transform:rotate(-30deg);
+    -o-transform:rotate(-30deg);
     transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
 
 }
-.graduate2{
-    top:30%;
-    right:30%;
-    transform:rotate(25deg);
-    -ms-transform:rotate(25deg);
-    -moz-transform:rotate(25deg);
-    -webkit-transform:rotate(25deg);
-    -o-transform:rotate(25deg);
+
+.graduate_new_2{
+    top:27%;
+    left:30%;
+    transform:rotate(-15deg);
+    -ms-transform:rotate(-15deg);
+    -moz-transform:rotate(-15deg);
+    -webkit-transform:rotate(-15deg);
+    -o-transform:rotate(-15deg);
     transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
 }
+
+.graduate_new_3{
+    top:25%;
+}
+
+.graduate_new_4{
+    top:27%;
+    right:30%;
+    transform:rotate(15deg);
+    -ms-transform:rotate(15deg);
+    -moz-transform:rotate(15deg);
+    -webkit-transform:rotate(15deg);
+    -o-transform:rotate(15deg);
+    transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+}
+
+.graduate_new_5{
+    top:30%;
+    right:20%;
+    transform:rotate(30deg);
+    -ms-transform:rotate(30deg);
+    -moz-transform:rotate(30deg);
+    -webkit-transform:rotate(30deg);
+    -o-transform:rotate(30deg);
+    transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+}
+
+.graduate_new_6{
+    top:34%;
+    right:10%;
+    transform:rotate(50deg);
+    -ms-transform:rotate(50deg);
+    -moz-transform:rotate(50deg);
+    -webkit-transform:rotate(50deg);
+    -o-transform:rotate(50deg);
+    transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+}
+
 .graduate3{
     top:55%;
     left:2%;
@@ -323,7 +370,7 @@ body {
 
 .graduate_class1{
     top:30%;
-    right:30%;
+    left:20%;
 }
 
 .graduate_class2{
