@@ -332,6 +332,7 @@ $(function () {
                 }
                 else{
                     u.drawImage(g, -n * o, -i * o, d * o, c * o);
+                    alert('error');
                 }
                 //u.drawImage(g, -n * o, -i * o, d * o, c * o);
                 //u.drawImage(mystyle, 0, 0, e, e);
