@@ -1,4 +1,5 @@
 var is_16_9=1;
+var orientation=null;
 $(function () {
 
     'use strict';
@@ -357,7 +358,6 @@ $(function () {
 
                 if (files && files.length) {
                     file = files[0];
-                    var orientation=null;
                     if (/^image\/\w+$/.test(file.type)) {
                         blobURL = URL.createObjectURL(file);
                         $("#image").attr('src' , blobURL);
