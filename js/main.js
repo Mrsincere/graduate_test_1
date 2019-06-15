@@ -330,17 +330,12 @@ $(function () {
                     u.rotate(90*Math.PI/180);
                     u.drawImage(g,-m.height/2-i*o,-m.width/2-n*o,c*o,d*o);
                     u.restore();
-                    alert('right');
-                    
                 }
                 else{
                     u.drawImage(g, -n * o, -i * o, d * o, c * o);
-                    alert('error');
                 }
                 //u.drawImage(g, -n * o, -i * o, d * o, c * o);
                 //u.drawImage(mystyle, 0, 0, e, e);
-                if(is_16_9){u.drawImage(mystyle,0,0,e*16/9,e);}
-                else{u.drawImage(mystyle,0,0,e,e*16/9);}
                 var v = document.getElementById("outputImage");
                 v.src = m.toDataURL("");
             }                
@@ -370,8 +365,8 @@ $(function () {
                         $(".operate").removeClass("hidden"),
                         document.getElementById("choose").scrollIntoView()
                         EXIF.getData(file,function(){
+                            EXIF.getAllTags(this);
                             orientation=EXIF.getTag(this,'Orientation');
-                            alert(orientation);
                         });
                     } else {
                         showMessage('请选择图片！');
