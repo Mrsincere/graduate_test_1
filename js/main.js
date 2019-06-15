@@ -330,6 +330,8 @@ $(function () {
                     u.rotate(90*Math.PI/180);
                     u.drawImage(g,-m.height/2-i*o,-m.width/2-n*o,c*o,d*o);
                     u.restore();
+                    alert('right');
+                    
                 }
                 else{
                     u.drawImage(g, -n * o, -i * o, d * o, c * o);
