@@ -321,7 +321,19 @@ $(function () {
                 else        {u.fillRect(0,0,e,e*16/9);}
                 var g = document.getElementById("image");
                 g.crossOrigin = "*";
-                u.drawImage(g, -n * o, -i * o, d * o, c * o);
+                if(is_16_9){u.drawImage(mystyle,0,0,e*16/9,e);}
+                else{u.drawImage(mystyle,0,0,e,e*16/9);}
+                if(orientation==6){
+                    u.save();
+                    u.translate(m.width/2,m.height/2);
+                    u.rotate(90*Math.PI/180);
+                    u.drawImage(g,-m.height/2-i*o,-m.width/2-n*o,c*o,d*o);
+                    u.restore();
+                }
+                else{
+                    u.drawImage(g, -n * o, -i * o, d * o, c * o);
+                }
+                //u.drawImage(g, -n * o, -i * o, d * o, c * o);
                 //u.drawImage(mystyle, 0, 0, e, e);
                 if(is_16_9){u.drawImage(mystyle,0,0,e*16/9,e);}
                 else{u.drawImage(mystyle,0,0,e,e*16/9);}
@@ -344,7 +356,7 @@ $(function () {
 
                 if (files && files.length) {
                     file = files[0];
-
+                    var orientation=null;
                     if (/^image\/\w+$/.test(file.type)) {
                         blobURL = URL.createObjectURL(file);
                         $("#image").attr('src' , blobURL);
@@ -354,7 +366,10 @@ $(function () {
                         $inputImage.val('');
                         $(".operate").removeClass("hidden"),
                         document.getElementById("choose").scrollIntoView()
-
+                        EXIF.getData(file,function(){
+                            EXIF.getAllTags(this);
+                            orientation=EXIF.getTag(this,'Orientation');
+                        });
                     } else {
                         showMessage('请选择图片！');
                     }
