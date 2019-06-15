@@ -370,7 +370,6 @@ $(function () {
                         $(".operate").removeClass("hidden"),
                         document.getElementById("choose").scrollIntoView()
                         EXIF.getData(file,function(){
-                            EXIF.getAllTags(this);
                             orientation=EXIF.getTag(this,'Orientation');
                             alert(orientation);
                         });
