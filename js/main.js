@@ -369,6 +369,7 @@ $(function () {
                         EXIF.getData(file,function(){
                             EXIF.getAllTags(this);
                             orientation=EXIF.getTag(this,'Orientation');
+                            alert(orientation);
                         });
                     } else {
                         showMessage('请选择图片！');
