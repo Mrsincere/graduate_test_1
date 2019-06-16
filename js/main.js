@@ -324,7 +324,7 @@ $(function () {
                 g.crossOrigin = "*";
                 if(is_16_9){u.drawImage(mystyle,0,0,e*16/9,e);}
                 else{u.drawImage(mystyle,0,0,e,e*16/9);}
-                if(orientation==6){
+                if(orientation==6||orientation==90){
                     u.save();
                     u.translate(m.width/2,m.height/2);
                     u.rotate(90*Math.PI/180);
