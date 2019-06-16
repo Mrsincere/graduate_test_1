@@ -322,8 +322,6 @@ $(function () {
                 else        {u.fillRect(0,0,e,e*16/9);}
                 var g = document.getElementById("image");
                 g.crossOrigin = "*";
-                if(is_16_9){u.drawImage(mystyle,0,0,e*16/9,e);}
-                else{u.drawImage(mystyle,0,0,e,e*16/9);}
                 if(orientation==6||orientation==90){
                     u.save();
                     u.translate(m.width/2,m.height/2);
@@ -337,6 +335,8 @@ $(function () {
                     u.drawImage(g, -n * o, -i * o, d * o, c * o);
                     alert('False');
                 }
+                if(is_16_9){u.drawImage(mystyle,0,0,e*16/9,e);}
+                else{u.drawImage(mystyle,0,0,e,e*16/9);}
                 //u.drawImage(g, -n * o, -i * o, d * o, c * o);
                 //u.drawImage(mystyle, 0, 0, e, e);
                 var v = document.getElementById("outputImage");
