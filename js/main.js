@@ -1,5 +1,4 @@
 var is_16_9=1;
-var orientation=null;
 $(function () {
 
     'use strict';
@@ -366,6 +365,7 @@ $(function () {
                         $inputImage.val('');
                         $(".operate").removeClass("hidden"),
                         document.getElementById("choose").scrollIntoView()
+                        var orientation=null;
                         EXIF.getData(file,function(){
                             EXIF.getAllTags(this);
                             orientation=EXIF.getTag(this,'Orientation');
