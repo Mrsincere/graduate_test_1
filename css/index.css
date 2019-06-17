@@ -5,16 +5,31 @@ body {
     background-position:center top;
 }
 
+
+.col-center-block {
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .img-preview{
-	width:200px;
-	height:112.5px;
+	width:240px;
+	height:135px;
     overflow: hidden;
+    position:relative;
+    top:0px;
 }
 
 .img-preview-new{
-    width:112.5px;
-    height:200px;
+    width:135px;
+    height:240px;
     overflow:hidden;
+    position:relative;
+}
+
+.preview_div{
+    height:140px;
 }
 
 .one {
@@ -37,10 +52,11 @@ body {
 	margin: 0 auto;
 }
 
+
 #avatarPreview{
-	width: 200px;
-    height: 112.5px;
-    position: absolute;
+	width: 240px;
+    height: 135px;
+    position: relative;
     top: 0px;
     border: 1px solid rgb(0, 86, 32)
 }
@@ -105,6 +121,7 @@ body {
     position: absolute;
     height:60px;
     width:44px;
+    background-size:100% 100%;
 }
 
 #year1{
@@ -388,4 +405,18 @@ body {
     position: absolute;
     right:25%;
     border-radius: 10px 10px 10px 10px;
+}
+
+#generate{
+    position: absolute;
+    left:15%;
+    border-radius: 10px 10px 10px 10px;
+    font-size: 15px;
+}
+
+#reset{
+    position: absolute;
+    right:15%;
+    border-radius: 10px 10px 10px 10px;
+    font-size:15px;
 }
