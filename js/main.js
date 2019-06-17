@@ -66,6 +66,7 @@ $(function () {
         var array_length=9;
         setTimeout(function(){
                 var i,j,time_delay,item_get;
+                /*
                 for(i=6;i>=1;i--)
                 {
                     time_delay=250*(7-i);
@@ -75,6 +76,7 @@ $(function () {
                         my_graduate_setTimeout_move(j,time_delay,left_position_new[j-i],top_position_new[j-i],1);
                     }
                 }
+                */
                 for(i=3;i<=11;i++)
                 {
                     time_delay=250*(i-2);
@@ -123,7 +125,7 @@ $(function () {
     
 
     //$('#cartoon').hide();
-    //$('#main').css('visibility','visible');
+    //$('#main').removeClass('hidden');
     //$('body').css('background-image','url("./picture/background.jpg")')
     /*
     $('.graduate').removeClass('hidden');
@@ -279,15 +281,20 @@ $(function () {
         $('#width_height_button1').on('click',function(){
             $('#choose_width_height').addClass('hidden');
             $('#inputimg_tip').removeClass('hidden');
+            $('#img-preview').css('left',(0.5*window_width-0.5*$('#img-preview').width())+'px');
+            $('#avatarPreview').css('left',(0.5*window_width-0.5*$('#avatarPreview').width())+'px').css('top',(-1*$('#avatarPreview').height())+'px');
         });
 
         $('#width_height_button2').on('click',function(){
             $('#choose_width_height').addClass('hidden');
             $('#inputimg_tip').removeClass('hidden');
             $('#image').cropper('setAspectRatio',9/16);
-            $('#avatarPreview').css('width',112.5+'px').css('height',200+'px');
+            $('#avatarPreview').css('width',135+'px').css('height',240+'px');
+            $('.preview_div').css('height',240+'px');
             $('.img-preview').addClass('hidden');
             $('.img-preview-new').removeClass('hidden');
+            $('#img-preview-new').css('left',(0.5*window_width-0.5*$('#img-preview-new').width())+'px');
+            $('#avatarPreview').css('left',(0.5*window_width-0.5*$('#avatarPreview').width())+'px').css('top',(-1*$('#avatarPreview').height())+'px');
             is_16_9=0;
         });
 
@@ -322,21 +329,18 @@ $(function () {
                 else        {u.fillRect(0,0,e,e*16/9);}
                 var g = document.getElementById("image");
                 g.crossOrigin = "*";
+                if(is_16_9){u.drawImage(mystyle,0,0,e*16/9,e);}
+                else{u.drawImage(mystyle,0,0,e,e*16/9);}
                 if(orientation==6||orientation==90){
                     u.save();
                     u.translate(m.width/2,m.height/2);
                     u.rotate(90*Math.PI/180);
                     u.drawImage(g,-m.height/2-i*o,-m.width/2-n*o,c*o,d*o);
                     u.restore();
-                    alert('true');
-
                 }
                 else{
                     u.drawImage(g, -n * o, -i * o, d * o, c * o);
-                    alert('False');
                 }
-                if(is_16_9){u.drawImage(mystyle,0,0,e*16/9,e);}
-                else{u.drawImage(mystyle,0,0,e,e*16/9);}
                 //u.drawImage(g, -n * o, -i * o, d * o, c * o);
                 //u.drawImage(mystyle, 0, 0, e, e);
                 var v = document.getElementById("outputImage");
@@ -365,13 +369,15 @@ $(function () {
                             URL.revokeObjectURL(blobURL); // Revoke when load complete
                         }).cropper('reset', true).cropper('replace', blobURL);
                         $inputImage.val('');
-                        $(".operate").removeClass("hidden"),
+                        $(".operate").removeClass("hidden");
+                        $(".preview_div").removeClass('hidden');
+                        $('#generate').removeClass('hidden');
+                        $('#reset').removeClass('hidden');
                         document.getElementById("choose").scrollIntoView()
                         EXIF.getData(file,function(){
                             EXIF.getAllTags(this);
                             orientation=EXIF.getTag(this,'Orientation');
                         });
-                        alert(orientation);
                     } else {
                         showMessage('请选择图片！');
                     }
