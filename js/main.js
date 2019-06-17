@@ -327,8 +327,6 @@ $(function () {
                 //u.fillRect(0, 0, e, e);
                 if(is_16_9) {u.fillRect(0,0,e*16/9,e);}
                 else        {u.fillRect(0,0,e,e*16/9);}
-                if(is_16_9){u.drawImage(mystyle,0,0,e*16/9,e);}
-                else       {u.drawImage(mystyle,0,0,e,e*16/9);}
                 var g = document.getElementById("image");
                 g.crossOrigin = "*";
                 if(orientation==6||orientation==90){
@@ -342,6 +340,8 @@ $(function () {
                 else{
                     u.drawImage(g, -n * o, -i * o, d * o, c * o);
                 }
+                if(is_16_9){u.drawImage(mystyle,0,0,e*16/9,e);}
+                else       {u.drawImage(mystyle,0,0,e,e*16/9);}
                 //u.drawImage(g, -n * o, -i * o, d * o, c * o);
                 //u.drawImage(mystyle, 0, 0, e, e);
                 var v = document.getElementById("outputImage");
