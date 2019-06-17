@@ -106,30 +106,36 @@
             <div class="row operate hidden">
                 </br>
             </div>  
-            <div class="row operate hidden">
+            <div class="hidden preview_div">
+                <!--
                 <div class="col-xs-5">
                     <label class="btn btn-default two" for="generate">
                         <button id="generate" class="hidden button button-pill"></button> 
                         <span>生成头像</span>
-                    </label>
+                    </label> 
                     <label class="btn btn-default two" for="reset">
                         <button id="reset" class="hidden button button-pill"></button>
                         <span>重&#160&#160&#160&#160&#160&#160&#160置</span>
                     </label>
-                </div>
-                <div class="col-xs-7">
-                    <div class="img-preview">
+                </div>-->
+                    <div class="img-preview" id="img-preview">
                         <img src="">
                     </div>
-                    <div class="img-preview-new hidden img-preview">
+                    <div class="img-preview-new hidden img-preview" id="img-preview-new">
                         <img src="">
                     </div>
                     <img id="avatarPreview" src="./picture/pic1.png" >
-                </div>
             </div> 
             <div class="row operate hidden">
+                </br>
             </div> 
-
+            <div class="col-xs-12">
+                <button type="button" class="btn btn-primary hidden" id="generate">生成头像</button>
+                <button type="button" class="btn btn-default hidden" id="reset">重&#160&#160&#160&#160&#160&#160&#160置</button>
+            </div>
+            <div class="row operate hidden">
+                </br>
+            </div> 
             <div class="row operate hidden">
                 <div class="col-xs-12">
                     <div class='panel-sysu93'>
@@ -184,6 +190,7 @@
             <div class="sysu" id="sysu2">Y</div>
             <div class="sysu" id="sysu3">S</div>
             <div class="sysu" id="sysu4">U</div>
+            <!--
             <div class="graduate hidden graduate_class1" id="graduate_new_1">w</div>
             <div class="graduate hidden graduate_class1" id="graduate_new_2">e</div>
             <div class="graduate hidden graduate_class1" id="graduate_new_3"></div>
@@ -199,6 +206,16 @@
             <div class="graduate hidden graduate_class2" id="graduate9">t</div>
             <div class="graduate hidden graduate_class2" id="graduate10">e</div>
             <div class="graduate hidden graduate_class2" id="graduate11">d</div>
+            -->
+            <div class="graduate hidden graduate_class2" id="graduate3" style="background-image: url(./picture/graduate3.jpg);"></div>
+            <div class="graduate hidden graduate_class2" id="graduate4"></div>
+            <div class="graduate hidden graduate_class2" id="graduate5" style="background-image: url(./picture/graduate5.jpg);"></div>
+            <div class="graduate hidden graduate_class2" id="graduate6"></div>
+            <div class="graduate hidden graduate_class2" id="graduate7" style="background-image: url(./picture/graduate7.jpg);"></div>
+            <div class="graduate hidden graduate_class2" id="graduate8"></div>
+            <div class="graduate hidden graduate_class2" id="graduate9" style="background-image: url(./picture/graduate9.jpg);"></div>
+            <div class="graduate hidden graduate_class2" id="graduate10"></div>
+            <div class="graduate hidden graduate_class2" id="graduate11" style="background-image: url(./picture/graduate11.jpg);"></div>
         </div>
 
         <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
@@ -210,6 +227,3 @@
         <script src="./exif/exif.js"></script>
     </body>
 </html>
-
-                
-                
