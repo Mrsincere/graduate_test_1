@@ -327,16 +327,17 @@ $(function () {
                 //u.fillRect(0, 0, e, e);
                 if(is_16_9) {u.fillRect(0,0,e*16/9,e);}
                 else        {u.fillRect(0,0,e,e*16/9);}
+                if(is_16_9){u.drawImage(mystyle,0,0,e*16/9,e);}
+                else       {u.drawImage(mystyle,0,0,e,e*16/9);}
                 var g = document.getElementById("image");
                 g.crossOrigin = "*";
-                if(is_16_9){u.drawImage(mystyle,0,0,e*16/9,e);}
-                else{u.drawImage(mystyle,0,0,e,e*16/9);}
                 if(orientation==6||orientation==90){
                     u.save();
                     u.translate(m.width/2,m.height/2);
                     u.rotate(90*Math.PI/180);
                     u.drawImage(g,-m.height/2-i*o,-m.width/2-n*o,c*o,d*o);
                     u.restore();
+
                 }
                 else{
                     u.drawImage(g, -n * o, -i * o, d * o, c * o);
@@ -378,7 +379,6 @@ $(function () {
                             EXIF.getAllTags(this);
                             orientation=EXIF.getTag(this,'Orientation');
                         });
-                        alert(orientation);
                     } else {
                         showMessage('请选择图片！');
                     }
